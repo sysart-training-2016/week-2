@@ -3,6 +3,8 @@
 <!-- Ant ビルドスクリプト -->
 <project name="sysart-training-2016-week-2" default="dist" basedir=".">
 
+	<property name="build.sysclasspath" value="last"/>
+
 	<!-- コンパイル -->
 	<target name="compile">
 		<mkdir dir="build/classes"/>
