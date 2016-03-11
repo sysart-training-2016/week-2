@@ -1,6 +1,9 @@
 *.class
 *.log
 
+# ant specific
+build/*
+
 # sbt specific
 .cache
 .history
@@ -15,3 +18,8 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+# vim
+*.swp
+*.swo
+*.swn

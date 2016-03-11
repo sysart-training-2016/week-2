@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ant ビルドスクリプト -->
+<project name="sysart-training-2016-week-2" default="dist" basedir=".">
+
+	<!-- コンパイル -->
+	<target name="compile">
+		<mkdir dir="build/classes"/>
+		<javac destdir="build/classes"
+				encoding="UTF-8">
+			<src path="src/main/java"/>
+		</javac>
+	</target>
+
+	<!-- 配布ファイル作成 -->
+	<target name="dist" depends="compile">
+		<mkdir dir="dist"/>
+		<jar destfile="dist/${ant.project.name}.jar">
+			<fileset dir="build/classes"/>
+		</jar>
+	</target>
+
+	<!-- javadoc 生成 -->
+	<target name="javadoc">
+		<delete dir="dist/javadoc"/>
+		<javadoc destdir="dist/javadoc"
+				encoding="UTF-8" docencoding="UTF-8" charset="UTF-8"
+				windowtitle="${ant.project.name}"
+				doctitle="${ant.project.name}">
+			<packageset dir="src/main/java">
+				<include name="**/*"/>
+			</packageset>
+			<link href="http://docs.oracle.com/javase/8/docs/api/"/>
+		</javadoc>
+	</target>
+
+	<!-- 生成したファイルを削除 -->
+	<target name="clean">
+		<delete dir="build"/>
+		<delete dir="dist"/>
+	</target>
+
+</project>
